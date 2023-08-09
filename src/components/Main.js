@@ -19,14 +19,47 @@ function Main (){
             meme: url
         }))
     }
+
+    function handleChange(e) {
+        const {name, value} = e.target;
+        setMeme(prevState => {
+            return {
+                ...prevState, 
+                [name]: value
+            }
+        })
+    }
     return (
         <main>
             <div className = "form">
-                    <input type="text" placeholder="Top text" className="form-input" />
-                    <input type="text" placeholder="Bottom text" className="form-input" />
-                    <button className="form-button" onClick={pickImage}> Get a new meme image 🖼 </button>
+                    <input 
+                        type="text" 
+                        placeholder="Top text" 
+                        className="form-input" 
+                        value = {meme.topText}
+                        onChange = {handleChange}
+                        name = "topText"
+                    />
+                    <input 
+                        type="text" 
+                        placeholder="Bottom text" 
+                        className="form-input" 
+                        name = "bottomText"
+                        value = {meme.bottomText}
+                        onChange = {handleChange}
+                    />
+                    <button 
+                        className="form-button" 
+                        onClick={pickImage}
+                    > 
+                        Get a new meme image 🖼 
+                    </button>
             </div>
-            <img src = {meme.meme} className = "meme-image"/>
+            <div className="meme">
+                <img src = {meme.meme} className = "meme-image"/>   
+                <h2 className="meme-text top">{meme.topText}</h2>
+                <h2 className="meme-text bottom">{meme.bottomText}</h2>
+            </div>
         </main>
     );
 }
