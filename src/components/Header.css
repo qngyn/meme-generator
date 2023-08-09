@@ -1,0 +1,19 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+    color:antiquewhite;
+    height: 65px;
+    padding: 10px;
+}
+
+.nav-page {
+    display: flex;
+    justify-self: space-between;
+    gap: 10px;
+}
+
+.logo {
+    height:  60px;
+}
+
